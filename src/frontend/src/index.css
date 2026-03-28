@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Dark-only palette - deep blue charcoal */
+    --background: 0.16 0.026 222;
+    --foreground: 0.93 0.015 220;
+    --card: 0.2 0.031 222;
+    --card-foreground: 0.93 0.015 220;
+    --popover: 0.22 0.034 222;
+    --popover-foreground: 0.93 0.015 220;
+    --primary: 0.74 0.12 192;
+    --primary-foreground: 0.12 0.022 222;
+    --secondary: 0.25 0.033 222;
+    --secondary-foreground: 0.93 0.015 220;
+    --muted: 0.22 0.03 222;
+    --muted-foreground: 0.67 0.025 220;
+    --accent: 0.74 0.12 192;
+    --accent-foreground: 0.12 0.022 222;
+    --destructive: 0.63 0.19 27;
+    --destructive-foreground: 0.97 0.01 220;
+    --border: 0.27 0.035 222;
+    --input: 0.27 0.035 222;
+    --ring: 0.74 0.12 192;
+    --chart-1: 0.74 0.12 192;
+    --chart-2: 0.76 0.14 162;
+    --chart-3: 0.63 0.19 27;
+    --chart-4: 0.72 0.15 220;
+    --chart-5: 0.8 0.16 80;
+    --sidebar: 0.14 0.022 222;
+    --sidebar-foreground: 0.93 0.015 220;
+    --sidebar-primary: 0.74 0.12 192;
+    --sidebar-primary-foreground: 0.12 0.022 222;
+    --sidebar-accent: 0.22 0.03 222;
+    --sidebar-accent-foreground: 0.93 0.015 220;
+    --sidebar-border: 0.27 0.035 222;
+    --sidebar-ring: 0.74 0.12 192;
+    /* Custom semantic tokens */
+    --positive: 0.76 0.14 162;
+    --negative: 0.63 0.19 27;
+    --teal: 0.74 0.12 192;
+    --header-bg: 0.18 0.028 222;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+    background: linear-gradient(
+      160deg,
+      oklch(0.16 0.026 222) 0%,
+      oklch(0.14 0.022 222) 100%
+    );
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: oklch(0.16 0.026 222);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.035 222);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.74 0.12 192 / 0.5);
+  }
+}
+
+@layer utilities {
+  .text-positive {
+    color: oklch(var(--positive));
+  }
+  .text-negative {
+    color: oklch(var(--negative));
+  }
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+  .bg-header {
+    background-color: oklch(var(--header-bg));
+  }
+  .bg-sidebar-custom {
+    background-color: oklch(var(--sidebar));
+  }
+  .border-card {
+    border-color: oklch(var(--border));
+  }
+  .glow-teal {
+    box-shadow: 0 0 20px oklch(0.74 0.12 192 / 0.15);
+  }
+}
